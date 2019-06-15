@@ -11,6 +11,10 @@ export class UsersService {
 
     }
 
+    async createUser(user:User) {
+        this.usersRepository.save(user)
+    }
+
     async getUsers(user: User): Promise<User[]> {
         return await this.usersRepository.find();
     }
@@ -28,5 +32,9 @@ export class UsersService {
 
     async deleteUser(user: User) {
         this.usersRepository.delete(user);
+    }
+
+    async getAllUsers(){
+        return await this.usersRepository.find();
     }
 }
